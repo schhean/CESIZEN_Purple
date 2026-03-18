@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import NavbarComponent from "@/components/navbar";
 import Footer from "@/components/footer";
+import SessionWrapper from "@/components/SessionWrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -43,16 +44,18 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <ToastProvider />
-          <div className="relative flex flex-col h-screen">
-            <NavbarComponent />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Footer/>
-            </footer>
-          </div>
+          <SessionWrapper>
+            <ToastProvider />
+            <div className="relative flex flex-col h-screen">
+              <NavbarComponent />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <footer className="w-full flex items-center justify-center py-3">
+                <Footer />
+              </footer>
+            </div>
+          </SessionWrapper>
         </Providers>
       </body>
     </html>

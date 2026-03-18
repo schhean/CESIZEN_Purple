@@ -12,17 +12,34 @@ import {
   NavbarItem,
   Link,
   Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Avatar,
+  Spinner
 } from "@heroui/react";
 import Auth from "./authentification/auth";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { useSession, signOut } from "next-auth/react";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  // Récupération de la session NextAuth
+  const { data: session, status } = useSession();
+
+  // Détermination de l'état de connexion et du rôle
+  const isLoggedIn = status === "authenticated";
+
+  // On vérifie ici si l'utilisateur est un admin (ajuste "ADMIN" selon ce que tu as en base de données)
+  // Note: il faut s'assurer que tu retournes bien le 'role' dans le callback 'jwt' et 'session' de NextAuth
+  const isAdmin = (session?.user as any)?.role === "ADMIN";
+
   const menuItems = [
-    "Accueil",
-    "Respiration",
-    "Prévention",
+    { name: "Accueil", href: "/" },
+    { name: "Respiration", href: "/respiration" },
+    { name: "Prévention", href: "/prevention" },
   ];
 
   return (
@@ -92,8 +109,53 @@ export default function App() {
           |
         </NavbarItem>
 
-        <NavbarItem>
-          <Auth />
+        {status === "authenticated" && isAdmin && (
+          <NavbarItem className="flex items-center">
+            <Button
+              as={Link}
+              href="/admin"
+              color="secondary"
+              variant="flat"
+              className="font-semibold"
+            >
+              Espace Admin
+            </Button>
+          </NavbarItem>
+        )}
+
+        <NavbarItem className="flex items-center h-full">
+          {status === "loading" ? (
+            <Spinner color="current" className="text-purple-800" size="sm" />
+          ) : status === "authenticated" ? (
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="success"
+                  showFallback
+                  src="image_user.png"
+                  size="sm"
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Menu utilisateur" variant="flat">
+                <DropdownItem key="settings" href="/mon-compte">
+                  Gérer mon compte
+                </DropdownItem>
+
+                <DropdownItem
+                  key="logout"
+                  color="danger"
+                  onPress={() => signOut()}
+                >
+                  Déconnexion
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : (
+            <Auth />
+          )}
         </NavbarItem>
 
         <NavbarItem className="hidden sm:flex">
@@ -103,14 +165,15 @@ export default function App() {
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.name}-${index}`}>
             <Link
               className="w-full"
               color="foreground"
-              href="#"
+              href={item.href}
               size="lg"
+              onPress={() => setIsMenuOpen(false)}
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

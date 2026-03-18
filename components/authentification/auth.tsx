@@ -14,6 +14,7 @@ import { use, useEffect, useState } from "react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { addToast } from "@heroui/toast";
+import { signIn } from "next-auth/react";
 
 // Icônes SVG pour les champs de connexion et d'inscription (voir la documentation de HeroUI pour plus de détails)
 export const LockIcon = (props: any) => {
@@ -198,7 +199,7 @@ export default function Auth() {
                 title: "Bienvenue sur CESIZEN !",
                 description: "Votre compte a été créé avec succès.",
                 color: "success",
-                timeout: 5000 
+                timeout: 5000
             });
 
             reset();
@@ -208,9 +209,38 @@ export default function Auth() {
         }
     };
 
-    // Fonction permettant de se connecter à l'application
+    // Fonction permettant de faire appel à l'API /login pour la validation des données et la connexion
     const handleLogin = async (data: userConnexionData) => {
+        try {
+            const res = await signIn("credentials", {
+                redirect: false, 
+                email: data.emailConnexion,
+                password: data.passwordConnexion,
+            });
 
+            if (res?.error) {
+                addToast({
+                    title: "Erreur",
+                    description: res.error,
+                    color: "danger",
+                    timeout: 5000
+                });
+                return;
+            }
+
+            onClose(); 
+
+            addToast({
+                title: "Bon retour !",
+                description: "Connexion réussie.",
+                color: "success",
+                timeout: 5000
+            });
+            reset();
+
+        } catch (error) {
+            console.error("Erreur de connexion:", error);
+        }
     };
 
 
@@ -241,6 +271,8 @@ export default function Auth() {
                                 getData(data);
                                 if (authMode === "register") {
                                     await handleRegister(data);
+                                } else if (authMode === "login") {
+                                    await handleLogin(data);
                                 }
                             })}>
                                 <ModalBody>

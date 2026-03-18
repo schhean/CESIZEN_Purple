@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <>
-      Partie prévention
+      Partie administration
     </>
   );
 }

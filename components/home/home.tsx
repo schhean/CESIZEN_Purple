@@ -17,11 +17,7 @@ export default function HomeComponent() {
                 <Ripple className="[&_div]:border-purple-400/40 [&_div]:bg-purple-300/10" />
             </div>
             <div>
-                <Card>
-                    <CardBody>
-                        <p>Make beautiful websites regardless of your design experience.</p>
-                    </CardBody>
-                </Card>
+               
             </div>
         </div>
     );
