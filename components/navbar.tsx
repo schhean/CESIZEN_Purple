@@ -18,13 +18,13 @@ import {
   DropdownItem,
   Avatar,
   Spinner
-} from "@heroui/react";
-import Auth from "./authentification/auth";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
-import { useSession, signOut } from "next-auth/react";
+} from "@heroui/react"; 
+import Auth from "./authentification/auth"; 
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"; 
+import { useSession, signOut } from "next-auth/react"; 
 
 export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false); 
 
   // Récupération de la session NextAuth
   const { data: session, status } = useSession();
@@ -32,8 +32,6 @@ export default function App() {
   // Détermination de l'état de connexion et du rôle
   const isLoggedIn = status === "authenticated";
 
-  // On vérifie ici si l'utilisateur est un admin (ajuste "ADMIN" selon ce que tu as en base de données)
-  // Note: il faut s'assurer que tu retournes bien le 'role' dans le callback 'jwt' et 'session' de NextAuth
   const isAdmin = (session?.user as any)?.role === "ADMIN";
 
   const menuItems = [

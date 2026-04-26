@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../lib/generated/prisma"
@@ -28,13 +25,32 @@ model User {
   mot_de_passe   String
   actif          Boolean @default(true)
   role           Role    @default(USER)
+
+  // Relation : Un utilisateur (Admin) peut écrire plusieurs articles
+  articles Article[]
 }
 
 model Exercice {
-  id_exercice      Int     @id @default(autoincrement())
-  nom_exercice     String
+  id_exercice       Int     @id @default(autoincrement())
+  nom_exercice      String
   temps_inspiration Int
   temps_apnee       Int
   temps_expiration  Int
-  description      String?
+  description       String?
+}
+
+model Article {
+  id_article Int     @id @default(autoincrement())
+  titre      String
+  resume     String? // Petit texte d'accroche pour la page d'accueil des articles
+  contenu    String  @db.Text // @db.Text permet de stocker de très longs textes dans PostgreSQL
+  image_url  String? // Lien vers une image d'illustration
+  est_publie Boolean @default(false) // Permet de garder des articles en brouillon
+
+  date_creation    DateTime @default(now())
+  date_mise_a_jour DateTime @updatedAt // Se met à jour automatiquement à chaque modification
+
+  // Clé étrangère pour relier l'article à son auteur (Admin)
+  auteur_id Int?
+  auteur    User? @relation(fields: [auteur_id], references: [id_utilisateur])
 }
