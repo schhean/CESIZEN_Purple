@@ -59,3 +59,42 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
+
+/**
+ * ==============================================================================
+ * DOCUMENTATION : Configuration NextAuth - /api/auth/[...nextauth]
+ * ==============================================================================
+ * 
+ * 📌 DESCRIPTION
+ * Ce fichier est le cœur du système d'authentification de l'application. Il utilise 
+ * NextAuth pour gérer les sessions utilisateurs via une stratégie de jetons JWT 
+ * et un fournisseur d'identifiants personnalisés (Credentials Provider).
+ * 
+ * 🚀 MÉTHODES ET LOGIQUE
+ * 
+ * 1. Provider Credentials :
+ *    - Extrait l'email et le mot de passe de la requête.
+ *    - Valide l'existence de l'utilisateur dans la base via Prisma.
+ *    - Compare le mot de passe haché avec bcrypt.
+ *    - Sécurité : Vérifie si le compte est marqué comme `actif`. Si `false`, 
+ *      l'accès est refusé.
+ *    - Retourne un objet utilisateur enrichi du `role`.
+ * 
+ * 2. Stratégie de Session :
+ *    - Utilise `strategy: "jwt"`, ce qui signifie que les données de session 
+ *      sont stockées dans un cookie chiffré côté client, et non en base de données.
+ * 
+ * 3. Callbacks (Cycle de vie) :
+ *    - jwt() : S'exécute lors de la création ou mise à jour du token. C'est ici 
+ *      que l'on injecte le `role` de l'utilisateur dans le payload du JWT.
+ *    - session() : Permet de rendre le `role` accessible côté client via le hook 
+ *      `useSession()` ou la fonction `getServerSession()`.
+ * 
+ * 🛠️ CONFIGURATION DES PAGES
+ * - La page de connexion par défaut est redirigée vers la racine (`/`).
+ * 
+ * 📝 NOTE TECHNIQUE
+ * L'export `handler as GET, handler as POST` permet à Next.js de gérer les 
+ * requêtes d'authentification sur les deux verbes HTTP nécessaires au protocole.
+ * ==============================================================================
+ */

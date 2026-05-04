@@ -111,7 +111,6 @@ export const EyeFilledIcon = (props: any) => {
 export default function ProfileForm({ user }: UserProps) {
   const [isEditing, setIsEditing] = useState(false);
   const router = useRouter();
-
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
   const {
@@ -277,3 +276,47 @@ export default function ProfileForm({ user }: UserProps) {
     </>
   );
 }
+
+/**
+ * ==============================================================================
+ * DOCUMENTATION : ProfileForm (Composant Client)
+ * ==============================================================================
+ * 
+ * 📌 VUE D'ENSEMBLE
+ * Ce composant gère l'interface de mise à jour du profil utilisateur. Il permet 
+ * d'éditer les informations personnelles (nom, prénom, email) et de déclencher 
+ * l'ouverture de la modale de changement de mot de passe.
+ * 
+ * 🏗️ ÉTATS LOCAUX
+ * - isEditing (boolean) : Bascule l'interface entre le mode "Lecture seule" et 
+ *   le mode "Edition".
+ * 
+ * ⚙️ LOGIQUE DE FORMULAIRE (react-hook-form)
+ * - defaultValues : Initialise les champs avec les données de l'utilisateur 
+ *   fournies par le Server Component parent.
+ * - validation : Inclut des contraintes de champs requis et un pattern Regex 
+ *   pour la validité syntaxique de l'adresse email.
+ * 
+ * 📘 FONCTIONS PRINCIPALES
+ * 
+ * 1. onSubmit(data: ProfileFormData) :
+ *    - Rôle : Envoie les données modifiées à l'API `/api/user` via une méthode PUT.
+ *    - Gestion du conflit (409) : Si l'email est déjà pris, utilise `setError` 
+ *      pour afficher un message d'erreur contextuel sur l'input email.
+ *    - Cycle de vie : En cas de succès, ferme le mode édition, affiche un Toast 
+ *      et utilise `router.refresh()` pour synchroniser les données du serveur.
+ * 
+ * 2. handleCancel() :
+ *    - Rôle : Annule les modifications non enregistrées.
+ *    - Action : Réinitialise le formulaire aux valeurs initiales (`reset`) et 
+ *      quitte l'état d'édition.
+ * 
+ * 3. onOpen / onOpenChange : 
+ *    - Rôle : Gère l'affichage de `PasswordChangeModal` via le hook `useDisclosure`.
+ * 
+ * 🎨 STYLISATION
+ * - Responsivité : Utilise des layouts flexibles (`flex-col` vs `sm:flex-row`).
+ * - Mode Sombre : Configuration via l'objet `inputClassNames` pour les bordures 
+ *   et arrière-plans en thème dark.
+ * ==============================================================================
+ */

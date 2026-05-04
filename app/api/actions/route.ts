@@ -36,8 +36,43 @@ export async function registerUser(data: FormData) {
 
         return { success: true, message: "Inscription réussie." };
     } catch (error) {
-        // J'ai corrigé l'espace ici !
         console.error("Erreur lors de l'inscription:", error);
         throw new Error("Une erreur est survenue lors de l'inscription.");
     }
 }
+
+/**
+ * ==============================================================================
+ * DOCUMENTATION : Server Action - registerUser
+ * ==============================================================================
+ * 
+ * 📌 DESCRIPTION
+ * Cette fonction est une "Server Action" Next.js qui gère la logique de création
+ * de compte utilisateur côté serveur. Elle assure la validation, la sécurité 
+ * (hachage) et la persistance des données.
+ * 
+ * 🛠️ FLUX DE TRAVAIL
+ * 1. Extraction : Récupère les données brutes du FormData (firstName, lastName, 
+ *    emailInscription, passwordInscription).
+ * 2. Validation : Vérifie que tous les champs obligatoires sont présents.
+ * 3. Unicité : Interroge la base de données via Prisma pour s'assurer que 
+ *    l'email n'est pas déjà utilisé.
+ * 4. Sécurité : Hache le mot de passe en utilisant bcryptjs avec un sel de 10 tours
+ *    pour éviter de stocker des mots de passe en clair.
+ * 5. Persistance : Crée l'entrée dans la table `user` avec le statut `actif: true`.
+ * 
+ * 🔒 SÉCURITÉ
+ * - S'exécute exclusivement côté serveur ("use server").
+ * - Utilisation de bcryptjs pour la protection des identifiants.
+ * - Protection contre les collisions d'emails.
+ * 
+ * 🚀 RETOURS & ERREURS
+ * - Succès : Retourne un objet `{ success: true, message: string }`.
+ * - Échec : Lève une `Error` explicite qui peut être capturée par un bloc 
+ *   try/catch dans le composant client ou un fichier error.tsx.
+ * 
+ * 📦 DÉPENDANCES
+ * - Prisma : ORM pour la communication avec la base de données.
+ * - Bcryptjs : Bibliothèque de hachage de mots de passe.
+ * ==============================================================================
+ */

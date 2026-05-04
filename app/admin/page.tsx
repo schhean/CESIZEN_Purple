@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Trash2, Ban, CheckCircle, ShieldAlert, Users, FileText, Plus, X, Pencil, Eye, EyeOff, Wind } from "lucide-react";
 
-// --- INTERFACES ---
 interface User {
   id_utilisateur: number;
   nom: string;
@@ -34,7 +33,6 @@ interface Exercice {
 export default function AdminDashboardPage() {
   const [activeTab, setActiveTab] = useState<"users" | "articles" | "exercices">("users");
 
-  // --- ÉTATS ---
   const [users, setUsers] = useState<User[]>([]);
   const [isUsersLoading, setIsUsersLoading] = useState(true);
 
@@ -50,7 +48,6 @@ export default function AdminDashboardPage() {
   const [newExercice, setNewExercice] = useState({ nom_exercice: "", description: "", temps_inspiration: 4, temps_apnee: 4, temps_expiration: 4 });
   const [editingExercice, setEditingExercice] = useState<Exercice | null>(null);
 
-  // --- LOGIQUE (Reste inchangée) ---
   const fetchUsers = async () => {
     try {
       const response = await fetch('/api/admin/users');
@@ -196,8 +193,6 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6 relative">
-      
-      {/* En-tête */}
       <div className="flex items-center gap-3 mb-6 sm:mb-8">
         <ShieldAlert className="w-7 h-7 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-400 flex-shrink-0" />
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
@@ -205,7 +200,6 @@ export default function AdminDashboardPage() {
         </h1>
       </div>
 
-      {/* Onglets avec scroll horizontal pour mobile */}
       <div className="flex border-b border-gray-200 dark:border-zinc-800 mb-6 sm:mb-8 overflow-x-auto no-scrollbar pb-1">
         <button
           onClick={() => setActiveTab("users")}
@@ -233,10 +227,8 @@ export default function AdminDashboardPage() {
         </button>
       </div>
 
-      {/* ==================== ONGLET UTILISATEURS ==================== */}
       {activeTab === "users" && (
         <div className="w-full">
-          {/* VUE MOBILE : Cartes empilées */}
           <div className="md:hidden flex flex-col gap-4">
             {isUsersLoading ? (
               <div className="text-center text-gray-500 py-8 animate-pulse">Chargement...</div>
@@ -266,7 +258,6 @@ export default function AdminDashboardPage() {
             ))}
           </div>
 
-          {/* VUE DESKTOP : Tableau classique */}
           <div className="hidden md:block bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-gray-200 dark:border-zinc-800 overflow-hidden w-full">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -311,7 +302,6 @@ export default function AdminDashboardPage() {
         </div>
       )}
 
-      {/* ==================== ONGLET ARTICLES ==================== */}
       {activeTab === "articles" && (
         <div className="w-full">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
@@ -334,7 +324,6 @@ export default function AdminDashboardPage() {
             </form>
           )}
 
-          {/* VUE MOBILE : Cartes */}
           <div className="md:hidden flex flex-col gap-4">
             {articles.map((article) => (
               <div key={article.id_article} className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm flex flex-col gap-3">
@@ -360,7 +349,6 @@ export default function AdminDashboardPage() {
             ))}
           </div>
 
-          {/* VUE DESKTOP : Tableau */}
           <div className="hidden md:block bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-gray-200 dark:border-zinc-800 overflow-hidden w-full">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -402,7 +390,6 @@ export default function AdminDashboardPage() {
         </div>
       )}
 
-      {/* ==================== ONGLET EXERCICES ==================== */}
       {activeTab === "exercices" && (
         <div className="w-full">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
@@ -428,7 +415,6 @@ export default function AdminDashboardPage() {
             </form>
           )}
 
-          {/* VUE MOBILE : Cartes */}
           <div className="md:hidden flex flex-col gap-4">
             {exercices.map((exo) => (
               <div key={exo.id_exercice} className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm flex flex-col gap-3">
@@ -450,7 +436,6 @@ export default function AdminDashboardPage() {
             ))}
           </div>
 
-          {/* VUE DESKTOP : Tableau */}
           <div className="hidden md:block bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-gray-200 dark:border-zinc-800 overflow-hidden w-full">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -489,7 +474,6 @@ export default function AdminDashboardPage() {
         </div>
       )}
 
-      {/* --- MODALES (Inchangées, gérées avec max-h-[90dvh] et overflow-y-auto) --- */}
       {editingArticle && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-zinc-900 w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[90dvh]">
@@ -541,3 +525,52 @@ export default function AdminDashboardPage() {
     </div>
   );
 }
+
+/**
+ * ==============================================================================
+ * DOCUMENTATION : AdminDashboardPage
+ * ==============================================================================
+ * 
+ * 📌 VUE D'ENSEMBLE
+ * Ce composant gère l'interface d'administration du site. Il permet de superviser
+ * trois piliers de l'application : les utilisateurs, les articles du blog et 
+ * les exercices de respiration.
+ * 
+ * 🏗️ STRUCTURE DES DONNÉES (Interfaces)
+ * - User : Gère les accès (ADMIN/USER) et l'état de bannissement (actif).
+ * - Article : Contenu éditorial avec gestion de l'état de publication.
+ * - Exercice : Configuration des cycles de respiration (Inspiration, Apnée, Expiration).
+ * 
+ * 🛠️ FONCTIONNALITÉS CLÉS
+ * 
+ * 1. Gestion des Utilisateurs (Onglet "Utilisateurs")
+ *    - Affichage de la liste complète via GET /api/admin/users.
+ *    - Toggle d'activité : Active ou désactive un compte (PATCH).
+ *    - Suppression : Retrait définitif de la base de données (DELETE).
+ * 
+ * 2. Gestion du Blog (Onglet "Articles")
+ *    - Création : Formulaire intégré pour ajouter un titre, un résumé et un contenu (POST).
+ *    - Édition : Modale dédiée pour modifier les textes existants (PATCH).
+ *    - Visibilité : Toggle rapide pour publier ou passer en brouillon (PATCH).
+ *    - Suppression : Suppression de l'article (DELETE).
+ * 
+ * 3. Gestion des Exercices (Onglet "Exercices")
+ *    - Création : Paramétrage précis des durées de cycle en secondes (POST).
+ *    - Édition : Ajustement des temps ou de la description via modale (PATCH).
+ *    - Suppression : Retrait de l'exercice (DELETE).
+ * 
+ * 📱 DESIGN & RESPONSIVITÉ
+ * - Mode Mobile (< 768px) : Les données s'affichent sous forme de cartes 
+ *   verticales pour une meilleure lisibilité tactile.
+ * - Mode Desktop (>= 768px) : Affichage sous forme de tableaux structurés 
+ *   pour une vision dense et professionnelle.
+ * - Mode Sombre : Support complet des classes `dark:` de Tailwind CSS.
+ * 
+ * 💡 UX (Expérience Utilisateur)
+ * - Confirmations : Les suppressions critiques demandent une validation via window.confirm.
+ * - Feedback Visuel : Utilisation d'états de chargement (skeletons/pulse) et 
+ *   de couleurs sémantiques (Vert=Succès, Rouge=Danger, Bleu=Info).
+ * - Modales : Conçues avec `max-h-[90dvh]` pour rester utilisables même sur 
+ *   petits écrans avec un défilement interne.
+ * ==============================================================================
+ */

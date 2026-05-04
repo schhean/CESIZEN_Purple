@@ -46,3 +46,35 @@ export async function DELETE(
         return NextResponse.json({ error: "Erreur lors de la suppression" }, { status: 500 });
     }
 }
+
+/**
+ * ==============================================================================
+ * DOCUMENTATION : API Route Handler (Dynamique) - /api/admin/exercices/[id]
+ * ==============================================================================
+ * 
+ * 📌 DESCRIPTION
+ * Ce fichier gère les actions spécifiques à un exercice de respiration unique via
+ * son identifiant dynamique. Il permet la mise à jour partielle et la suppression.
+ * 
+ * 🚀 MÉTHODES HTTP
+ * 
+ * 1. PATCH : Mise à jour ciblée
+ *    - Action : Modifie les propriétés d'un exercice existant.
+ *    - Flexibilité : Utilise l'opérateur de décomposition (spread) conditionnel
+ *      pour ne mettre à jour que les champs fournis dans le corps de la requête.
+ *    - Conversion : Force la conversion des durées (inspiration, apnée, expiration)
+ *      en type `Number` pour garantir la compatibilité avec le schéma de la base.
+ * 
+ * 2. DELETE : Suppression
+ *    - Action : Retire définitivement l'exercice de la base de données.
+ *    - Retour : Un objet `{ success: true }` en cas de réussite.
+ * 
+ * 🛠️ DÉTAILS TECHNIQUES
+ * - Params : Support de l'asynchronisme pour les paramètres de route (`Promise`).
+ * - Prisma : Utilisation de la table `exercice` avec filtrage sur `id_exercice`.
+ * - Sécurité : Gestion des erreurs via try/catch renvoyant un statut 500 explicite.
+ * 
+ * 📝 NOTE TECHNIQUE
+ * Ce handler doit être situé dans `app/api/admin/exercices/[id]/route.ts`.
+ * ==============================================================================
+ */
