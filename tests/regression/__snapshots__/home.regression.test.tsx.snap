@@ -1,0 +1,571 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`non regression - accueil > conserve les appels a l'action principaux et la structure de la page d'accueil 1`] = `
+<div
+  class="w-full pb-16 md:pb-24 overflow-x-hidden bg-background"
+>
+  <div
+    class="bg-background relative flex min-h-[500px] w-full flex-col items-center justify-center overflow-hidden gap-4 md:gap-6 px-4 py-12 md:py-0"
+  >
+    <p
+      class="z-10 text-center text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter whitespace-pre-wrap text-black dark:text-white mt-8 md:mt-12"
+    >
+      Bienvenue sur CESI
+      <span
+        class="text-purple-600 dark:text-purple-400"
+      >
+        ZEN
+      </span>
+    </p>
+    <p
+      class="z-10 text-center text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed px-2"
+    >
+      Retrouvez votre équilibre intérieur en un seul souffle grâce à CESIZEN, votre refuge pour une meilleure santé mentale.
+    </p>
+    <div
+      class="z-10 flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8 w-full sm:w-auto px-4 sm:px-0"
+    >
+      <a
+        class="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-bold text-base md:text-lg transition-all shadow-lg shadow-purple-500/30 flex items-center justify-center gap-2 hover:scale-105"
+        href="/respiration"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-wind w-5 h-5"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.8 19.6A2 2 0 1 0 14 16H2"
+          />
+          <path
+            d="M17.5 8a2.5 2.5 0 1 1 2 4H2"
+          />
+          <path
+            d="M9.8 4.4A2 2 0 1 1 11 8H2"
+          />
+        </svg>
+        Respirer maintenant
+      </a>
+      <a
+        class="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 rounded-full font-bold text-base md:text-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
+        href="/prevention"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-book-open w-5 h-5"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 7v14"
+          />
+          <path
+            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+          />
+        </svg>
+        Découvrir les articles
+      </a>
+    </div>
+    <div
+      class="pointer-events-none absolute inset-0 mask-[linear-gradient(to_bottom,white,transparent)] select-none [&_div]:border-purple-400/40 [&_div]:bg-purple-300/10"
+    >
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 0; width: 210px; height: 210px; opacity: 0.24; animation-delay: 0s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 1; width: 280px; height: 280px; opacity: 0.21; animation-delay: 0.06s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 2; width: 350px; height: 350px; opacity: 0.18; animation-delay: 0.12s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 3; width: 420px; height: 420px; opacity: 0.15; animation-delay: 0.18s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 4; width: 490px; height: 490px; opacity: 0.12; animation-delay: 0.24s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 5; width: 560px; height: 560px; opacity: 0.09; animation-delay: 0.3s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 6; width: 630px; height: 630px; opacity: 0.06; animation-delay: 0.36s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+      <div
+        class="animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl"
+        style="--i: 7; width: 700px; height: 700px; opacity: 0.03; animation-delay: 0.42s; border-style: solid; border-width: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1);"
+      />
+    </div>
+  </div>
+  <div
+    class="max-w-4xl mx-auto px-4 sm:px-6 -mt-6 md:-mt-8 relative z-20"
+  >
+    <div
+      class="bg-white dark:bg-zinc-900 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl shadow-purple-900/5 border border-gray-100 dark:border-zinc-800 text-center"
+    >
+      <h2
+        class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6"
+      >
+        Comment vous sentez-vous aujourd'hui ?
+      </h2>
+      <div
+        class="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-8"
+      >
+        <button
+          class="flex flex-col items-center gap-1.5 md:gap-2 p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 w-[70px] sm:w-auto text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 opacity-70 hover:opacity-100 hover:scale-105"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-battery-warning w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 17h.01"
+            />
+            <path
+              d="M10 7v6"
+            />
+            <path
+              d="M14 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2"
+            />
+            <path
+              d="M22 14v-4"
+            />
+            <path
+              d="M6 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"
+            />
+          </svg>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 text-center leading-tight"
+          >
+            Épuisé(e)
+          </span>
+        </button>
+        <button
+          class="flex flex-col items-center gap-1.5 md:gap-2 p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 w-[70px] sm:w-auto text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 opacity-70 hover:opacity-100 hover:scale-105"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-frown w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <path
+              d="M16 16s-1.5-2-4-2-4 2-4 2"
+            />
+            <line
+              x1="9"
+              x2="9.01"
+              y1="9"
+              y2="9"
+            />
+            <line
+              x1="15"
+              x2="15.01"
+              y1="9"
+              y2="9"
+            />
+          </svg>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 text-center leading-tight"
+          >
+            Stressé(e)
+          </span>
+        </button>
+        <button
+          class="flex flex-col items-center gap-1.5 md:gap-2 p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 w-[70px] sm:w-auto text-yellow-500 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 opacity-70 hover:opacity-100 hover:scale-105"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-meh w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <line
+              x1="8"
+              x2="16"
+              y1="15"
+              y2="15"
+            />
+            <line
+              x1="9"
+              x2="9.01"
+              y1="9"
+              y2="9"
+            />
+            <line
+              x1="15"
+              x2="15.01"
+              y1="9"
+              y2="9"
+            />
+          </svg>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 text-center leading-tight"
+          >
+            Moyen
+          </span>
+        </button>
+        <button
+          class="flex flex-col items-center gap-1.5 md:gap-2 p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 w-[70px] sm:w-auto text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 opacity-70 hover:opacity-100 hover:scale-105"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-smile w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <path
+              d="M8 14s1.5 2 4 2 4-2 4-2"
+            />
+            <line
+              x1="9"
+              x2="9.01"
+              y1="9"
+              y2="9"
+            />
+            <line
+              x1="15"
+              x2="15.01"
+              y1="9"
+              y2="9"
+            />
+          </svg>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 text-center leading-tight"
+          >
+            Bien
+          </span>
+        </button>
+        <button
+          class="flex flex-col items-center gap-1.5 md:gap-2 p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 w-[70px] sm:w-auto text-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 opacity-70 hover:opacity-100 hover:scale-105"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-heart w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
+            />
+          </svg>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 text-center leading-tight"
+          >
+            En pleine forme
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="max-w-5xl mx-auto px-4 sm:px-6 mt-16 md:mt-24"
+  >
+    <div
+      class="bg-gradient-to-r from-sky-50 to-purple-50 dark:from-sky-900/10 dark:to-purple-900/10 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 border border-sky-100 dark:border-zinc-800 flex flex-col md:flex-row items-center gap-8 md:gap-12"
+    >
+      <div
+        class="flex-1 text-center md:text-left order-2 md:order-1"
+      >
+        <span
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-200/50 text-sky-700 dark:bg-sky-900/50 dark:text-sky-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-3 md:mb-4"
+        >
+          ⭐ Recommandation du jour
+        </span>
+        <h2
+          class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-3 md:mb-4"
+        >
+          La respiration 4-7-8
+        </h2>
+        <p
+          class="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed"
+        >
+          Un exercice scientifiquement prouvé pour calmer le système nerveux et favoriser un endormissement rapide. Parfait pour terminer la journée.
+        </p>
+        <a
+          class="inline-flex items-center justify-center md:justify-start gap-2 font-bold text-sky-600 dark:text-sky-400 hover:gap-3 transition-all w-full md:w-auto"
+          href="/respiration"
+        >
+          Essayer cet exercice 
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-arrow-right w-4 h-4 sm:w-5 sm:h-5"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="m12 5 7 7-7 7"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-tr from-sky-300 to-purple-400 opacity-80 blur-xl animate-pulse flex-shrink-0 order-1 md:order-2"
+      />
+    </div>
+  </div>
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 mt-16 md:mt-24"
+  >
+    <div
+      class="text-center mb-8 md:mb-12"
+    >
+      <h2
+        class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4"
+      >
+        Pourquoi choisir CESIZEN ?
+      </h2>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
+    >
+      <div
+        class="text-center p-4 sm:p-6 bg-white dark:bg-zinc-900 md:bg-transparent md:dark:bg-transparent rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-gray-100 dark:border-zinc-800 md:border-none"
+      >
+        <div
+          class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-clock w-6 h-6 md:w-8 md:h-8"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <path
+              d="M12 6v6l4 2"
+            />
+          </svg>
+        </div>
+        <h3
+          class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3"
+        >
+          Rapide et Efficace
+        </h3>
+        <p
+          class="text-sm md:text-base text-gray-600 dark:text-gray-400"
+        >
+          Seulement 5 minutes d'exercices par jour suffisent pour ressentir des effets positifs durables.
+        </p>
+      </div>
+      <div
+        class="text-center p-4 sm:p-6 bg-white dark:bg-zinc-900 md:bg-transparent md:dark:bg-transparent rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-gray-100 dark:border-zinc-800 md:border-none"
+      >
+        <div
+          class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-brain w-6 h-6 md:w-8 md:h-8"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 18V5"
+            />
+            <path
+              d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"
+            />
+            <path
+              d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"
+            />
+            <path
+              d="M17.997 5.125a4 4 0 0 1 2.526 5.77"
+            />
+            <path
+              d="M18 18a4 4 0 0 0 2-7.464"
+            />
+            <path
+              d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"
+            />
+            <path
+              d="M6 18a4 4 0 0 1-2-7.464"
+            />
+            <path
+              d="M6.003 5.125a4 4 0 0 0-2.526 5.77"
+            />
+          </svg>
+        </div>
+        <h3
+          class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3"
+        >
+          Soutenu par la Science
+        </h3>
+        <p
+          class="text-sm md:text-base text-gray-600 dark:text-gray-400"
+        >
+          Basé sur les principes reconnus de la cohérence cardiaque pour synchroniser votre corps et votre esprit.
+        </p>
+      </div>
+      <div
+        class="text-center p-4 sm:p-6 bg-white dark:bg-zinc-900 md:bg-transparent md:dark:bg-transparent rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-gray-100 dark:border-zinc-800 md:border-none sm:col-span-2 md:col-span-1"
+      >
+        <div
+          class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-leaf w-6 h-6 md:w-8 md:h-8"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+            />
+            <path
+              d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"
+            />
+          </svg>
+        </div>
+        <h3
+          class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3"
+        >
+          100% Naturel
+        </h3>
+        <p
+          class="text-sm md:text-base text-gray-600 dark:text-gray-400"
+        >
+          Retrouvez votre calme intérieur sans artifice, simplement en réapprenant à maîtriser votre souffle.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 md:mt-24 text-center"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-quote w-8 h-8 md:w-12 md:h-12 text-gray-200 dark:text-zinc-800 mx-auto mb-4 md:mb-6 rotate-180"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+      />
+      <path
+        d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+      />
+    </svg>
+    <p
+      class="text-lg sm:text-xl md:text-3xl italic font-medium text-gray-700 dark:text-gray-300 leading-relaxed px-4 md:px-0"
+    >
+      « Le calme est le pouvoir de l'esprit. »
+    </p>
+  </div>
+</div>
+`;
