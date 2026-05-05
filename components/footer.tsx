@@ -18,10 +18,10 @@ export default function Footer() {
 
         {/* LIENS MINI */}
         <div className="flex gap-6">
-          <Link href="#" className="text-xs text-default-500 hover:text-green-600">
+          <Link href="/confidentialite" className="text-xs text-default-500 hover:text-purple-600">
             Confidentialité
           </Link>
-          <Link href="#" className="text-xs text-default-500 hover:text-green-600">
+          <Link href="/contact" className="text-xs text-default-500 hover:text-purple-600">
             Contact
           </Link>
         </div>

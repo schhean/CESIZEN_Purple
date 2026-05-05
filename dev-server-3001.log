@@ -1,0 +1,20 @@
+
+> next-app-template@0.0.1 dev
+> next dev --turbopack --port 3001
+
+   ▲ Next.js 15.5.12 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://10.121.128.86:3001
+   - Environments: .env
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\sokch\\Desktop\\project_cesizen_purple\\cesizen_purple',
+  testMode: true
+}
+ ✓ Compiled middleware in 267ms
+ ✓ Ready in 1663ms
+ ○ Compiling /contact ...
+ GET /contact 200 in 6440ms
+ ✓ Compiled /contact in 6.5s
+ GET /confidentialite 200 in 6726ms
