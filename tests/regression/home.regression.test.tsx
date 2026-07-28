@@ -11,10 +11,9 @@ describe("non regression - accueil", () => {
     const { container } = render(React.createElement(HomeComponent));
 
     expect(screen.getByText(/Bienvenue sur CESI/i)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Respirer maintenant/i })).toHaveAttribute(
-      "href",
-      "/respiration",
-    );
+    expect(
+      screen.getByRole("link", { name: /Respirer maintenant/i }),
+    ).toHaveAttribute("href", "/respiration");
     expect(screen.getByRole("link", { name: /articles/i })).toHaveAttribute(
       "href",
       "/prevention",

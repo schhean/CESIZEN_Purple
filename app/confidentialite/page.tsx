@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import Link from "next/link";
 import {
   Cookie,
@@ -78,7 +79,9 @@ export default function ConfidentialitePage() {
             Politique de confidentialite
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-400 md:text-lg">
-            Chez CESIZEN, la confiance fait partie de l'experience. Cette page resume de facon claire comment vos donnees sont traitees lorsque vous utilisez la plateforme.
+            Chez CESIZEN, la confiance fait partie de l'experience. Cette page
+            resume de facon claire comment vos donnees sont traitees lorsque
+            vous utilisez la plateforme.
           </p>
           <p className="mt-4 text-sm font-semibold text-purple-600 dark:text-purple-400">
             Derniere mise a jour : 5 mai 2026
@@ -94,7 +97,10 @@ export default function ConfidentialitePage() {
               Des donnees limitees a ce qui est utile
             </h2>
             <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 md:text-base">
-              CESIZEN est concu pour accompagner le bien-etre et la prevention. Nous cherchons donc a limiter les donnees collectees, a expliquer leur usage simplement et a vous laisser la main sur vos informations personnelles.
+              CESIZEN est concu pour accompagner le bien-etre et la prevention.
+              Nous cherchons donc a limiter les donnees collectees, a expliquer
+              leur usage simplement et a vous laisser la main sur vos
+              informations personnelles.
             </p>
           </div>
         </section>
@@ -108,7 +114,9 @@ export default function ConfidentialitePage() {
                 key={section.title}
                 className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${section.background} ${section.color}`}>
+                <div
+                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${section.background} ${section.color}`}
+                >
                   <Icon className="h-6 w-6" />
                 </div>
                 <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
@@ -132,12 +140,14 @@ export default function ConfidentialitePage() {
                 Contact relatif aux donnees personnelles
               </h2>
               <p className="max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                Pour exercer vos droits ou obtenir une precision sur cette politique, vous pouvez nous contacter directement depuis la page contact.
+                Pour exercer vos droits ou obtenir une precision sur cette
+                politique, vous pouvez nous contacter directement depuis la page
+                contact.
               </p>
             </div>
             <Link
-              href="/contact"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-purple-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-500/30 transition hover:bg-purple-700 md:w-auto"
+              href="/contact"
             >
               <Mail className="h-4 w-4" />
               Nous contacter

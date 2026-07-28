@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 
-test("l'utilisateur peut choisir une humeur et recevoir une suggestion", async ({ page }) => {
+test("l'utilisateur peut choisir une humeur et recevoir une suggestion", async ({
+  page,
+}) => {
   await page.goto("/");
 
   await page.getByRole("button", { name: /Stress/i }).click();
@@ -31,7 +33,9 @@ test("la page respiration affiche une liste d'exercices et permet d'ouvrir une f
 
   await page.goto("/respiration");
 
-  await expect(page.getByRole("heading", { name: "Souffle test" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Souffle test" }),
+  ).toBeVisible();
   await expect(page.getByText("5s")).toBeVisible();
 
   await page.getByRole("link", { name: /Souffle test/i }).click();

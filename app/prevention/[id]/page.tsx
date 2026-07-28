@@ -47,8 +47,10 @@ export default function ArticleDetailPage() {
     const fetchArticle = async () => {
       try {
         const response = await fetch(`/api/articles/${id}`);
+
         if (!response.ok) throw new Error("Article introuvable");
         const data = await response.json();
+
         setArticle(data);
       } catch (error) {
         console.error("Erreur :", error);
@@ -63,8 +65,10 @@ export default function ArticleDetailPage() {
   if (isLoading) {
     return (
       <div className="max-w-3xl mx-auto p-6 min-h-[80vh] flex flex-col justify-center items-center">
-        <div className="w-12 h-12 border-4 border-teal-200 border-t-teal-600 rounded-full animate-spin mb-4"></div>
-        <p className="text-gray-500 dark:text-gray-400 font-medium animate-pulse">Chargement de l'article...</p>
+        <div className="w-12 h-12 border-4 border-teal-200 border-t-teal-600 rounded-full animate-spin mb-4" />
+        <p className="text-gray-500 dark:text-gray-400 font-medium animate-pulse">
+          Chargement de l'article...
+        </p>
       </div>
     );
   }
@@ -73,9 +77,16 @@ export default function ArticleDetailPage() {
     return (
       <div className="max-w-3xl mx-auto p-6 min-h-[80vh] flex flex-col justify-center items-center text-center">
         <FileText className="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Article introuvable</h1>
-        <p className="text-gray-500 dark:text-gray-400 mb-8">Cet article n'existe pas ou n'est plus disponible.</p>
-        <button onClick={() => router.back()} className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-medium transition-colors">
+        <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+          Article introuvable
+        </h1>
+        <p className="text-gray-500 dark:text-gray-400 mb-8">
+          Cet article n'existe pas ou n'est plus disponible.
+        </p>
+        <button
+          className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-medium transition-colors"
+          onClick={() => router.back()}
+        >
           Retour à la prévention
         </button>
       </div>
@@ -84,10 +95,9 @@ export default function ArticleDetailPage() {
 
   return (
     <article className="max-w-3xl mx-auto p-6 min-h-[80vh] pb-24">
-      
-      <button 
-        onClick={() => router.back()}
+      <button
         className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium mb-12 mt-4"
+        onClick={() => router.back()}
       >
         <ArrowLeft className="w-4 h-4" />
         Retour aux articles
@@ -97,15 +107,17 @@ export default function ArticleDetailPage() {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6 leading-tight">
           {article.titre}
         </h1>
-        
+
         <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 dark:text-gray-400 font-medium">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            {new Date(article.date_creation).toLocaleDateString('fr-FR', {
-              day: 'numeric', month: 'long', year: 'numeric'
+            {new Date(article.date_creation).toLocaleDateString("fr-FR", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
             })}
           </div>
-          
+
           {article.auteur && (
             <div className="flex items-center gap-2">
               <User className="w-4 h-4 text-teal-600 dark:text-teal-400" />
@@ -120,7 +132,6 @@ export default function ArticleDetailPage() {
           {article.contenu}
         </p>
       </div>
-
     </article>
   );
 }
@@ -129,34 +140,34 @@ export default function ArticleDetailPage() {
  * DOCUMENTATION DU COMPOSANT ArticleDetailPage
  * =====================================================================
  *
- * Ce composant a pour rôle d'afficher le contenu complet d'un article 
+ * Ce composant a pour rôle d'afficher le contenu complet d'un article
  * spécifique sélectionné depuis la page Prévention.
  *
  * 1. Routage dynamique (Next.js) :
  * ---------------------------------------------------------------------
  * - Le fichier doit être placé dans `app/prevention/[id]/page.tsx`.
- * - `useParams()` récupère l'`id` de l'article directement depuis l'URL 
+ * - `useParams()` récupère l'`id` de l'article directement depuis l'URL
  * (ex: /prevention/3 -> id = 3).
  *
  * 2. Récupération des données (useEffect) :
  * ---------------------------------------------------------------------
  * - On fait un `fetch` vers notre nouvelle route API `/api/articles/[id]`.
- * - Si l'article n'existe pas ou n'est pas publié (erreur 404 renvoyée 
+ * - Si l'article n'existe pas ou n'est pas publié (erreur 404 renvoyée
  * par l'API), le code "attrape" l'erreur et l'état `article` reste `null`.
  *
  * 3. Gestion des états (UI) :
  * ---------------------------------------------------------------------
- * - Chargement (Spinner) : Pendant le fetch, on affiche un cercle qui 
+ * - Chargement (Spinner) : Pendant le fetch, on affiche un cercle qui
  * tourne (`animate-spin`) stylisé aux couleurs du site.
- * - Introuvable (404 visuelle) : Si l'article est `null` après le chargement, 
+ * - Introuvable (404 visuelle) : Si l'article est `null` après le chargement,
  * on affiche un message d'erreur amical avec un bouton pour revenir en arrière.
  *
  * 4. Formatage du texte (whitespace-pre-wrap) :
  * ---------------------------------------------------------------------
- * C'est le point le plus important pour un blog basique. Quand tu tapes 
- * un texte dans le `<textarea>` de ton administration et que tu fais 
+ * C'est le point le plus important pour un blog basique. Quand tu tapes
+ * un texte dans le `<textarea>` de ton administration et que tu fais
  * "Entrée", ça crée des caractères invisibles `\n`.
- * En HTML normal, ces retours à la ligne sont ignorés. La classe Tailwind 
- * `whitespace-pre-wrap` force le navigateur à respecter ces retours à la 
+ * En HTML normal, ces retours à la ligne sont ignorés. La classe Tailwind
+ * `whitespace-pre-wrap` force le navigateur à respecter ces retours à la
  * ligne pour que ton article garde ses paragraphes intacts.
  * ===================================================================== */

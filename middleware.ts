@@ -16,18 +16,15 @@ export default withAuth(
         }
 
         if (path.startsWith("/mon-compte")) {
-          return !!token; 
+          return !!token;
         }
 
         return true;
       },
     },
-  }
+  },
 );
 
 export const config = {
-  matcher: [
-    "/mon-compte/:path*", 
-    "/admin/:path*" 
-  ],
+  matcher: ["/mon-compte/:path*", "/admin/:path*"],
 };
