@@ -13,8 +13,12 @@ describe("utils", () => {
   it("valide uniquement le bon mot de passe apres hashage", async () => {
     const hashedPassword = await hash("mot-de-passe-solide");
 
-    await expect(compare("mot-de-passe-solide", hashedPassword)).resolves.toBe(true);
-    await expect(compare("mauvais-mot-de-passe", hashedPassword)).resolves.toBe(false);
+    await expect(compare("mot-de-passe-solide", hashedPassword)).resolves.toBe(
+      true,
+    );
+    await expect(compare("mauvais-mot-de-passe", hashedPassword)).resolves.toBe(
+      false,
+    );
     expect(hashedPassword).not.toBe("mot-de-passe-solide");
   });
 });

@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-default-100 py-8 mt-auto">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        
         {/* LOGO CESIZEN */}
         <div className="flex items-center font-bold text-inherit text-xl">
           <span className="">CESI</span>
@@ -18,14 +17,19 @@ export default function Footer() {
 
         {/* LIENS MINI */}
         <div className="flex gap-6">
-          <Link href="/confidentialite" className="text-xs text-default-500 hover:text-purple-600">
+          <Link
+            className="text-xs text-default-500 hover:text-purple-600"
+            href="/confidentialite"
+          >
             Confidentialité
           </Link>
-          <Link href="/contact" className="text-xs text-default-500 hover:text-purple-600">
+          <Link
+            className="text-xs text-default-500 hover:text-purple-600"
+            href="/contact"
+          >
             Contact
           </Link>
         </div>
-
       </div>
     </footer>
   );

@@ -49,18 +49,20 @@ export default function ExerciceDetailPage() {
 
   /**
    * @effect
-   * Récupère la liste des exercices depuis l'API, isole celui correspondant 
+   * Récupère la liste des exercices depuis l'API, isole celui correspondant
    * à l'ID passé en paramètre d'URL, et initialise la minuterie avec le
    * temps d'inspiration de l'exercice trouvé.
    */
   useEffect(() => {
     const fetchExercice = async () => {
       try {
-        const response = await fetch('/api/exercices');
+        const response = await fetch("/api/exercices");
+
         if (!response.ok) throw new Error("Erreur réseau");
         const data: Exercice[] = await response.json();
-        
+
         const foundExo = data.find((e) => e.id_exercice === id);
+
         if (foundExo) {
           setExercice(foundExo);
           setTimeLeft(foundExo.temps_inspiration);
@@ -122,8 +124,18 @@ export default function ExerciceDetailPage() {
     if (exercice) setTimeLeft(exercice.temps_inspiration);
   };
 
-  if (isLoading) return <div className="p-12 text-center text-gray-500 dark:text-gray-400 animate-pulse font-medium mt-20">Chargement de la séance...</div>;
-  if (!exercice) return <div className="p-12 text-center text-red-500 font-medium mt-20">Exercice introuvable.</div>;
+  if (isLoading)
+    return (
+      <div className="p-12 text-center text-gray-500 dark:text-gray-400 animate-pulse font-medium mt-20">
+        Chargement de la séance...
+      </div>
+    );
+  if (!exercice)
+    return (
+      <div className="p-12 text-center text-red-500 font-medium mt-20">
+        Exercice introuvable.
+      </div>
+    );
 
   /**
    * Dictionnaire des styles (Tailwind) associés dynamiquement à chaque phase
@@ -147,7 +159,7 @@ export default function ExerciceDetailPage() {
       border: "border-teal-500 dark:border-teal-500",
       halo: "bg-teal-100 dark:bg-teal-900/30",
       shadow: "shadow-teal-500/20",
-    }
+    },
   };
 
   const currentStyles = phaseStyles[phase];
@@ -161,15 +173,15 @@ export default function ExerciceDetailPage() {
     if (!isActive) return "scale-100 opacity-50";
     if (phase === "Inspiration") return "scale-[1.35] opacity-100";
     if (phase === "Expiration") return "scale-90 opacity-20";
-    return "scale-110 opacity-60"; 
+
+    return "scale-110 opacity-60";
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6 flex flex-col items-center min-h-[85vh] relative pt-20 sm:pt-12">
-      
-      <button 
-        onClick={() => router.back()}
+      <button
         className="absolute top-4 left-4 sm:top-8 sm:left-8 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors font-medium z-20"
+        onClick={() => router.back()}
       >
         <ArrowLeft className="w-4 h-4" />
         Retour aux exercices
@@ -191,15 +203,21 @@ export default function ExerciceDetailPage() {
 
       <div className="flex-grow flex flex-col justify-center items-center w-full mb-12">
         <div className="relative flex items-center justify-center w-72 h-72">
-          <div 
+          <div
             className={`absolute inset-0 rounded-full transition-all duration-1000 ease-in-out ${currentStyles.halo} ${getHaloScale()}`}
           />
 
-          <div className={`relative z-10 w-64 h-64 rounded-full border-[6px] bg-white dark:bg-zinc-900 flex flex-col items-center justify-center transition-colors duration-500 shadow-2xl ${currentStyles.border} ${currentStyles.shadow}`}>
-            <span className={`text-xl uppercase tracking-[0.2em] font-bold mb-1 transition-colors ${currentStyles.text}`}>
+          <div
+            className={`relative z-10 w-64 h-64 rounded-full border-[6px] bg-white dark:bg-zinc-900 flex flex-col items-center justify-center transition-colors duration-500 shadow-2xl ${currentStyles.border} ${currentStyles.shadow}`}
+          >
+            <span
+              className={`text-xl uppercase tracking-[0.2em] font-bold mb-1 transition-colors ${currentStyles.text}`}
+            >
               {phase}
             </span>
-            <span className={`text-8xl font-black tabular-nums transition-colors ${currentStyles.text}`}>
+            <span
+              className={`text-8xl font-black tabular-nums transition-colors ${currentStyles.text}`}
+            >
               {timeLeft}
             </span>
           </div>
@@ -207,13 +225,13 @@ export default function ExerciceDetailPage() {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md px-4 mt-auto">
-        <button 
-          onClick={toggleTimer}
+        <button
           className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-full font-bold text-lg text-white shadow-lg transition-all duration-200 active:scale-95 ${
-            isActive 
-              ? "bg-amber-500 hover:bg-amber-600 shadow-amber-500/25" 
+            isActive
+              ? "bg-amber-500 hover:bg-amber-600 shadow-amber-500/25"
               : "bg-sky-600 hover:bg-sky-700 shadow-sky-600/25"
           }`}
+          onClick={toggleTimer}
         >
           {isActive ? (
             <>
@@ -227,17 +245,20 @@ export default function ExerciceDetailPage() {
             </>
           )}
         </button>
-        
-        <button 
-          onClick={resetTimer}
-          disabled={!isActive && timeLeft === exercice?.temps_inspiration && phase === "Inspiration"}
+
+        <button
           className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-full font-semibold text-lg bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={
+            !isActive &&
+            timeLeft === exercice?.temps_inspiration &&
+            phase === "Inspiration"
+          }
+          onClick={resetTimer}
         >
           <RotateCcw className="w-5 h-5" />
           Réinitialiser
         </button>
       </div>
-
     </div>
   );
 }
@@ -246,7 +267,7 @@ export default function ExerciceDetailPage() {
  * DOCUMENTATION DU COMPOSANT ExerciceDetailPage
  * =====================================================================
  *
- * Ce composant a pour rôle d'afficher les détails d'un exercice spécifique 
+ * Ce composant a pour rôle d'afficher les détails d'un exercice spécifique
  * et de proposer un chronomètre interactif pour guider la respiration, avec
  * un design zen parfaitement aligné sur la charte graphique de l'application.
  *
@@ -260,7 +281,7 @@ export default function ExerciceDetailPage() {
  *
  * 2. Les Types (TypeScript) :
  * ---------------------------------------------------------------------
- * - Type `Phase` : Restreint la variable "phase" à 3 valeurs exactes ("Inspiration", 
+ * - Type `Phase` : Restreint la variable "phase" à 3 valeurs exactes ("Inspiration",
  * "Apnée", "Expiration"). Cela empêche les fautes de frappe dans le code.
  *
  * 3. Les États (useState) :
@@ -279,35 +300,35 @@ export default function ExerciceDetailPage() {
  *
  * 5. Le moteur du chronomètre (useEffect 2) :
  * ---------------------------------------------------------------------
- * C'est le cœur de la logique, qui se déclenche chaque fois que `isActive`, 
+ * C'est le cœur de la logique, qui se déclenche chaque fois que `isActive`,
  * `timeLeft` ou `phase` changent.
- * - SI le timer est actif ET qu'il reste du temps : On utilise `setInterval` 
+ * - SI le timer est actif ET qu'il reste du temps : On utilise `setInterval`
  * pour enlever 1 à `timeLeft` toutes les 1000 millisecondes (1 seconde).
  * - SI le timer est actif ET que le temps est à 0 : Il faut passer à l'étape suivante.
- * - Si on inspirait : on passe en apnée (sauf s'il n'y a pas d'apnée, 
+ * - Si on inspirait : on passe en apnée (sauf s'il n'y a pas d'apnée,
  * alors on passe directement à l'expiration).
  * - Si on était en apnée : on passe à l'expiration.
  * - Si on expirait : on repart au début (Inspiration) et la boucle recommence.
- * - `clearInterval(interval)` : Crucial pour éviter que le timer ne devienne fou 
+ * - `clearInterval(interval)` : Crucial pour éviter que le timer ne devienne fou
  * et ne compte en double si on met en pause.
  *
  * 6. Les contrôles (Boutons) :
  * ---------------------------------------------------------------------
- * - toggleTimer : Inverse l'état `isActive`. Change l'icône (Play/Pause) et la 
+ * - toggleTimer : Inverse l'état `isActive`. Change l'icône (Play/Pause) et la
  * couleur du bouton (Sky Blue pour démarrer, Ambre/Orange pour la pause).
- * - resetTimer : Coupe le timer, remet la phase à "Inspiration" et remet 
+ * - resetTimer : Coupe le timer, remet la phase à "Inspiration" et remet
  * le compteur à sa valeur de départ. Ce bouton est désactivé (grisé) s'il n'y
  * a rien à réinitialiser.
  *
  * 7. L'interface (JSX, DA et Animations) :
  * ---------------------------------------------------------------------
- * - En-tête "Zen" : Ajout de l'icône Wind dans un cercle bleu clair pour faire 
+ * - En-tête "Zen" : Ajout de l'icône Wind dans un cercle bleu clair pour faire
  * le lien visuel avec la page précédente (la liste des exercices).
  * - phaseStyles : Un dictionnaire qui associe des couleurs spécifiques (textes,
  * bordures, fond du halo) à chaque phase (Bleu ciel=Inspiration, Violet=Apnée, Vert=Expiration).
  * - getHaloScale() : Gère la taille de l'animation en arrière-plan.
  * - L'animation de respiration (Halo) : Au lieu de faire grossir tout le composant,
- * on a un cercle central blanc/sombre (fixe), et une "bulle" colorée en arrière-plan 
+ * on a un cercle central blanc/sombre (fixe), et une "bulle" colorée en arrière-plan
  * qui grandit à l'inspiration et rétrécit à l'expiration.
  * - tabular-nums : Une classe Tailwind appliquée sur le gros chiffre du compteur
  * pour éviter un décalage visuel quand on passe de 10 à 9.

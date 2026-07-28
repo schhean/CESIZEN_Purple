@@ -27,10 +27,9 @@ describe("non regression - respiration", () => {
     });
 
     expect(screen.getAllByText("4s")).toHaveLength(3);
-    expect(screen.getByRole("link", { name: /Respiration carree/i })).toHaveAttribute(
-      "href",
-      "/respiration/7",
-    );
+    expect(
+      screen.getByRole("link", { name: /Respiration carree/i }),
+    ).toHaveAttribute("href", "/respiration/7");
     expect(container.firstChild).toMatchSnapshot();
   });
 });
