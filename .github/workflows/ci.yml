@@ -41,8 +41,8 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Installer une version stable de npm
-        run: npm install --global npm@11.11.0
+      - name: Installer la version npm du projet
+        run: npm install --global npm@10.9.4
 
       - name: Afficher les versions utilisées
         run: |
