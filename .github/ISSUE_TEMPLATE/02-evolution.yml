@@ -1,0 +1,45 @@
+name: Demander une évolution
+description: Proposer une fonctionnalité ou une amélioration
+title: "[Évolution] "
+labels:
+  - "type: évolution"
+
+body:
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Besoin
+      description: Décrivez le besoin utilisateur ou métier.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Solution proposée
+      description: Décrivez la solution envisagée.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteres
+    attributes:
+      label: Critères d’acceptation
+      description: Indiquez les conditions nécessaires pour valider la demande.
+      placeholder: |
+        - L’utilisateur peut...
+        - Le système affiche...
+        - L’administrateur peut...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priorite
+    attributes:
+      label: Priorité souhaitée
+      options:
+        - P2 — Majeure
+        - P3 — Normale
+        - P4 — Faible
+    validations:
+      required: true

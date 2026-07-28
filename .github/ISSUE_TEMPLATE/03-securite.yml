@@ -1,0 +1,51 @@
+name: Action de sécurité
+description: Suivre une amélioration ou un incident de sécurité
+title: "[Sécurité] "
+labels:
+  - "type: sécurité"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ne publiez aucun secret, mot de passe, donnée personnelle
+        ou détail permettant d’exploiter une vulnérabilité.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description non sensible
+      description: Décrivez le risque sans publier d’information confidentielle.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environnement
+    attributes:
+      label: Environnement concerné
+      options:
+        - Développement
+        - Recette
+        - Production
+        - Tous les environnements
+    validations:
+      required: true
+
+  - type: dropdown
+    id: criticite
+    attributes:
+      label: Criticité estimée
+      options:
+        - P1 — Critique
+        - P2 — Majeure
+        - P3 — Normale
+        - P4 — Faible
+    validations:
+      required: true
+
+  - type: textarea
+    id: actions
+    attributes:
+      label: Premières actions proposées
+    validations:
+      required: true
